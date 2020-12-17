@@ -1,0 +1,27 @@
+import random
+
+print('H A N G M A N\n')
+answers = ['python', 'java', 'kotlin', 'javascript']  # word base to guess
+answer = random.choice(answers)
+masked = '-' * (len(answer))  # hidden letters as '-' in word
+a = 0
+
+while a <= 7:
+    if ('-' in masked) == False:
+        a = 8
+        print(masked)
+    else:
+        print(masked)
+        letter = input(f'Input a letter: ')
+        if letter in answer:
+            print()
+            for sign in answer:
+                if sign == letter:
+                    hint = int(answer.index(sign))
+                    answer = answer.replace(letter, '-', 1)
+                    masked = masked[:hint] + letter + masked[hint+1:]
+        else:
+            print("That letter doesn't appear in the word\n")
+            a += 1
+
+print("\nThanks for playing!\nWe'll see how well you did in the next stage")
