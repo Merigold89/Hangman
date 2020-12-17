@@ -1,0 +1,13 @@
+import random
+# Write your code here
+print('H A N G M A N')
+answers = ['python', 'java', 'kotlin', 'javascript']
+answer = random.choice(answers)
+print(answer)
+masked = '-' * (len(answer) - 3)  # number of hidden letters as '-' as str
+hint = answer[:3] + masked  
+guess = input(f'Guess the word {hint}:')
+if answer == guess:
+    print('You survived!')
+else:
+    print('You lost!')
